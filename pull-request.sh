@@ -23,8 +23,8 @@ PULLS_URL=$REPO_URL/pulls
 ################################################################################
 
 get_previous_commit_message() {
-  cd /github/workspace
   ls -la
+  cd /github/workspace
   PULL_REQUEST_BODY=$(git log -1)
 }
 
