@@ -27,7 +27,7 @@ commit_message_as_body() {
 
   COMMIT_MESSAGE_URL=$(curl -s https://api.github.com/repos/"${COMMITS_URL}""${BRANCH}" | jq '.object.url' -r)
 
-  if [ -z "${COMMIT_MESSAGE_URL}" ]; then
+  if [ -n "${COMMIT_MESSAGE_URL}" ]; then
     PULL_REQUEST_BODY=$(curl -s "$COMMIT_MESSAGE_URL" | jq '.message' -r)
   fi
 
