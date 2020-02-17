@@ -139,7 +139,7 @@ main () {
                 PULL_REQUEST_BODY="This is an automated pull request for ${BRANCH}"
             elif [ "${PULL_REQUEST_BODY}" = 'use-commit-message' ]; then
                 echo "Using the commit message as the pull request body"
-                get_previous_commit_message
+                commit_message_as_body
             fi
             echo "Pull request body is ${PULL_REQUEST_BODY}"
 
