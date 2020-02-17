@@ -126,14 +126,12 @@ main () {
             if [ -z "${PULL_REQUEST_BODY}" ]; then
                 echo "No pull request body is set, will use default."
                 PULL_REQUEST_BODY="This is an automated pull request for ${BRANCH}"
-            fi
-
-            # Pull request body (optional)
-            if [ "${PULL_REQUEST_BODY}" = 'use-commit-message' ]; then
+            elif [ "${PULL_REQUEST_BODY}" = 'use-commit-message' ]; then
                 echo "Using the commit message as the pull request body"
                 PULL_REQUEST_BODY=$(git log -1)
             fi
-            echo "Using commit message as pull request body"
+            echo "Pull request body is ${PULL_REQUEST_BODY}"
+
 
             # Pull request title (optional)
             if [ -z "${PULL_REQUEST_TITLE}" ]; then
