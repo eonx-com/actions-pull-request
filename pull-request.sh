@@ -22,6 +22,12 @@ PULLS_URL=$REPO_URL/pulls
 # Helper Functions
 ################################################################################
 
+get_previous_commit_message() {
+  cd /github/workspace
+  ls -la
+  PULL_REQUEST_BODY=$(git log -1)
+}
+
 
 check_credentials() {
 
@@ -128,7 +134,7 @@ main () {
                 PULL_REQUEST_BODY="This is an automated pull request for ${BRANCH}"
             elif [ "${PULL_REQUEST_BODY}" = 'use-commit-message' ]; then
                 echo "Using the commit message as the pull request body"
-                PULL_REQUEST_BODY=$(git log -1)
+                get_previous_commit_message
             fi
             echo "Pull request body is ${PULL_REQUEST_BODY}"
 
