@@ -33,12 +33,16 @@ Environment variables include:
 
   - **BRANCH_PREFIX**: the prefix to filter to. If the branch doesn't start with the prefix, it will be ignored
   - **PULL_REQUEST_BRANCH**: the branch to issue the pull request to. Defaults to master.
-  - **PULL_REQUEST_BODY**: the body for the pull request (optional)
+  - **PULL_REQUEST_BODY**: the body for the pull request (optional) 
   - **PULL_REQUEST_TITLE**: the title for the pull request  (optional)
   - **PULL_REQUEST_DRAFT**: should the pull request be a draft PR? (optional; unset defaults to `false`)
 
 The `GITHUB_TOKEN` secret is required to interact and authenticate with the GitHub API to open
 the pull request. The example is [deployed here](https://github.com/vsoch/pull-request-action-example) with an example opened (and merged) [pull request here](https://github.com/vsoch/pull-request-action-example/pull/1) if needed.
+
+The PULL_REQUEST_BODY can be set to 'use-commit-message' if you want to use the last commit message as the pull request body
+```PULL_REQUEST_BODY: "use-commit-message"```
+
 
 ## Example use Case: Update Registry
 
